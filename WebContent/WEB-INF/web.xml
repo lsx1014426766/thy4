@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<display-name>Thymeleaf Example</display-name>
+<!--只到根路径 webContext,则跳往欢迎页，可同时配置多个，找不到就一直向下找  -->
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+
+		<servlet-name>thymeleafexample</servlet-name>
+
+		<servlet-class>thy4.bean.exampleServlet</servlet-class>
+
+		<load-on-startup>1</load-on-startup>
+
+	</servlet>
+	<!-- http://localhost:8080/thy4/thymeleafexample -->
+	<servlet-mapping>
+
+		<servlet-name>thymeleafexample</servlet-name>
+
+		<url-pattern>/thymeleafexample</url-pattern>
+
+	</servlet-mapping>
+
+</web-app>

@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+
+	      xmlns:th="http://www.thymeleaf.org">
+
+	  <head>
+
+	    <title>Hello World Thymeleaf!!</title>
+
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	  </head>
+
+	  <body>
+
+	<p th:text="#{hello}">Hello World Thymeleaf Offline!!</p>
+	<p>
+		Session value: <span th:text="${session.sessionValue}">No Value</span>
+	</p>
+	<p>
+		Locale country:<span th:text="${#locale.country}">US</span>
+	</p>
+	<p>
+		Today is: <span th:text="${#calendars.format(today,'dd MMMM yyyy')}">Empty</span>
+	</p>
+	<p>
+		Is Empty String: <span th:text="${#strings.isEmpty(contextValue)}">True</span>
+	</p>
+	<p>
+		Upper Case String: <span
+			th:text="${#strings.toUpperCase('javabeat')} ">None</span>
+	</p>
+	<p>
+		List Size: <span th:text="${#lists.size(listExample)}">0</span>
+	</p>
+	<p>
+		Set Size: <span th:text="${#sets.size(setExample)}">0</span>
+	</p>
+	<p>
+		Format Number: <span
+			th:text="${#numbers.formatInteger(100000,3,'POINT')}">0</span>
+	</p>
+	<div th:remove="all-but-first" th:each="aintro : ${albumIntrolist}">
+		<div th:id="'albumSalesIntro_'+${aintroStat.count}"
+			class="controls albumSalesIntro">
+			<input name="albumSalesIntroName"
+				th:id="'albumSalesIntro_'+${aintroStat.count}+'_txt'" type="text"
+				class="control-text span8 span-width" th:value="${aintro}" />
+		</div>
+		<div id="albumIntro_1" class="controls control-row4 albumIntro">
+			<textarea name="albumIntroName" id="albumIntro_1_txt"
+				class="span8 span-width"></textarea>
+		</div>
+	</div>
+</body>
+
+	</html>
